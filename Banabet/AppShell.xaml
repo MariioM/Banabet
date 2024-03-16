@@ -24,8 +24,8 @@
         <ShellContent
         Title="Comunidad"
         Icon="menu_comunidad"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:RegisterPage}"
+        Route="RegisterPage" />
 
         <ShellContent
         Title="Perfil"
