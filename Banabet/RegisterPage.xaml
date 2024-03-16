@@ -58,6 +58,5 @@
             <Label Text="Inicia sesión" FontFamily="PoppinsSemi" TextColor="#EA9413" TextDecorations="Underline"/>
 
         </StackLayout>
-
     </VerticalStackLayout>
 </ContentPage>

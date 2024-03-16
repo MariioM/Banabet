@@ -1,10 +1,10 @@
-﻿
+
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
-namespace BanaBet.ViewModel;
+namespace Banabet.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
@@ -52,4 +52,5 @@ public partial class MainViewModel : ObservableObject
             await Task.Delay(1000);
         }
     }
+    //Solo 3 decimales en los kilos de platanos
 }
