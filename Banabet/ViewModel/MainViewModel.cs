@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
-namespace BanaBet.ViewModel;
+namespace Banabet.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
