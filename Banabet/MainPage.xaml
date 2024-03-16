@@ -100,7 +100,7 @@
                         HorizontalOptions="FillAndExpand" 
                         VerticalOptions="FillAndExpand">
             <Button Text="!"
-                    AbsoluteLayout.LayoutBounds="0.5, 1, 0.15, 10" <!-- x, y, width, height -->
+                    AbsoluteLayout.LayoutBounds="0.5, 1, 0.15, 10"
                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" 
                     BackgroundColor="#FFB340"
                     TextColor="White"
