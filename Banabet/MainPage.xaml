@@ -5,88 +5,108 @@
              Shell.NavBarIsVisible="False"
              Title="Home">
 
-    <StackLayout>
-        <StackLayout Spacing="20" Padding="20, 40, 20, -50">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-            <Image Source="app_icon" HeightRequest="38" WidthRequest="52" />
-            <Label Text="Llevas sin jugar:" FontFamily="PoppinsMedium" TextColor="#90A5B4" FontSize="16" HorizontalOptions="Center" />
+        <StackLayout Grid.Row="0">
+            <StackLayout Spacing="20" Padding="20, 40, 20, -50">
 
-            <Grid RowDefinitions=".8*,*" >
+                <Image Source="app_icon" HeightRequest="38" WidthRequest="52" />
+                <Label Text="Llevas sin jugar:" FontFamily="PoppinsMedium" TextColor="#90A5B4" FontSize="16" HorizontalOptions="Center" />
 
-                <StackLayout Orientation="Horizontal" Spacing="45" HorizontalOptions="Center">
+                <Grid RowDefinitions=".8*,*" >
 
-                    <Label Text="37"
-                           TextColor="#F9A502" 
-                           FontSize="52"
-                           FontFamily="PoppinsSemi"/>
+                    <StackLayout Orientation="Horizontal" Spacing="45" HorizontalOptions="Center">
 
-                    <Label Text="13"
-                           TextColor="#F9A502" 
-                           FontSize="52"
-                           FontFamily="PoppinsSemi"
-                           Grid.Column="1"
-                           />
-                    <Label Text="56"
-                           TextColor="#F9A502" 
-                           FontSize="52"
-                           FontFamily="PoppinsSemi"
-                           Grid.Column="2"
-                           />
+                        <Label Text="37"
+                               TextColor="#F9A502" 
+                               FontSize="52"
+                               FontFamily="PoppinsBold"/>
 
-                </StackLayout>
+                        <Label Text="13"
+                               TextColor="#F9A502" 
+                               FontSize="52"
+                               FontFamily="PoppinsBold"
+                               Grid.Column="1"
+                               />
+                        <Label Text="56"
+                               TextColor="#F9A502" 
+                               FontSize="52"
+                               FontFamily="PoppinsBold"
+                               Grid.Column="2"
+                               />
 
-                <StackLayout Orientation="Horizontal" Spacing="50" Grid.Row="1" HorizontalOptions="Center">
+                    </StackLayout>
 
-                    <Label Text="días" 
-                           FontFamily="PoppinsMedium"
-                           FontSize="20"
-                           TextColor="#797979"
-                           HorizontalOptions="Center"/>
-                    <Label Text="horas"   
-                           FontFamily="PoppinsMedium"
-                           FontSize="20"
-                           TextColor="#797979"
+                    <StackLayout Orientation="Horizontal" Spacing="60" Grid.Row="1" HorizontalOptions="Center">
+
+                        <Label Text="días" 
+                               FontFamily="PoppinsMedium"
+                               FontSize="20"
+                               TextColor="#797979"
+                               HorizontalOptions="Center"/>
+                        <Label Text="horas"   
+                               FontFamily="PoppinsMedium"
+                               FontSize="20"
+                               TextColor="#797979"
+                               HorizontalOptions="Center"
+                               />
+                        <Label Text="mins" 
+                               FontFamily="PoppinsMedium"
+                               FontSize="20"
+                               TextColor="#797979"
+                               HorizontalOptions="Center"
+                               />
+
+                    </StackLayout>
+
+                </Grid>
+
+                <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+
+                    <ProgressBar Progress="0.5"
+                     ProgressColor="#FFB340"
+                     ScaleY="3"
+                     Grid.ColumnSpan="2"/>
+                    <Image Source="progress_foot.svg" Grid.Row="1" Grid.ColumnSpan="2" Margin="5, 0, 0, 0"/>
+
+                </Grid>
+                <Grid HorizontalOptions="Center" WidthRequest="320">
+                    <Label FontSize="17"
                            HorizontalOptions="Center"
-                           />
-                    <Label Text="mins" 
-                           FontFamily="PoppinsMedium"
-                           FontSize="20"
-                           TextColor="#797979"
-                           HorizontalOptions="Center"
-                           />
+                           HorizontalTextAlignment="Center">
 
-                </StackLayout>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Lo que en bananas suma la cantidad de " FontFamily="Poppins" TextColor="#90A5B4"/>
+                                <Span Text="100" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
+                                <Span Text=" Toneladas" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
+                                <Span Text=" que ocupan:" FontFamily="Poppins" TextColor="#90A5B4"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
 
-            </Grid>
 
-            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
-
-                <ProgressBar Progress="0.5"
-                 ProgressColor="#FFB340"
-                 ScaleY="3"
-                 Grid.ColumnSpan="2"/>
-                <Image Source="progress_foot.svg" Grid.Row="1" Grid.ColumnSpan="2" Margin="5, 0, 0, 0"/>
-
-            </Grid>
-            <Grid HorizontalOptions="Center" WidthRequest="320">
-                <Label FontSize="17"
-                       HorizontalOptions="Center"
-                       HorizontalTextAlignment="Center">
-
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Lo que en bananas suma la cantidad de " FontFamily="Poppins" TextColor="#90A5B4"/>
-                            <Span Text="100" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
-                            <Span Text=" Toneladas" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
-                            <Span Text=" que ocupan:" FontFamily="Poppins" TextColor="#90A5B4"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </Grid>
-
+            </StackLayout>
+            <Image Source="home_bananamountain.png" Margin="0, 0, 0, 20" AbsoluteLayout.LayoutBounds="0, 10"/>
 
         </StackLayout>
-        <Image Source="home_bananamountain.png" Margin="0, 0, 0, 20" AbsoluteLayout.LayoutBounds="0, 10"/>
 
-    </StackLayout>
+        <AbsoluteLayout Grid.Row="1" 
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="FillAndExpand">
+            <Button Text="!"
+                    AbsoluteLayout.LayoutBounds="0.5, 1, 0.15, 10" <!-- x, y, width, height -->
+                    AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" 
+                    BackgroundColor="#FFB340"
+                    TextColor="White"
+                    FontFamily="PoppinsMedium"
+                    CornerRadius="50"
+                    HeightRequest="60"/>
+        </AbsoluteLayout>
+    </Grid>
 </ContentPage>
