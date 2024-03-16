@@ -9,21 +9,22 @@
 
     <TabBar>
         <ShellContent
-        Title="Analisis"
-        Icon="menu_icon_analisis"
+        Title="Home"
+        Icon="menu_home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
         <ShellContent
-        Title="Analisis"
-        Icon="menu_icon_analisis"
+
+        Title="Asistencia"
+        Icon="menu_asistencia"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="HomePage" />
 
         <ShellContent
-        Title="Config"
-        Icon="menu_icon_settings"
-        ContentTemplate="{DataTemplate local:RegisterPage}"
+        Title="Comunidad"
+        Icon="menu_comunidad"
+        ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
         <ShellContent
