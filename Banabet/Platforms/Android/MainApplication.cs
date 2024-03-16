@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Banabet
+namespace BanaBet
 {
     [Application]
     public class MainApplication : MauiApplication

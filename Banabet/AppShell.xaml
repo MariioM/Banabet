@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="Banabet.AppShell"
+    x:Class="BanaBet.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Banabet"
+    xmlns:local="clr-namespace:BanaBet"
     Shell.FlyoutBehavior="Disabled"
-    Title="Banabet">
+    Title="MauiApp1">
 
-    <ShellContent
-        Title="Home"
+    <TabBar>
+        <ShellContent
+        Title="Analisis"
+        Icon="menu_icon_analisis"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+        <ShellContent
+        Title="Analisis"
+        Icon="menu_icon_analisis"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+        <ShellContent
+        Title="Config"
+        Icon="menu_icon_settings"
+        ContentTemplate="{DataTemplate local:RegisterPage}"
+        Route="MainPage" />
+
+        <ShellContent
+        Title="Perfil"
+        Icon="menu_icon_perfil"
+        ContentTemplate="{DataTemplate local:ProfilePage}"
+        Route="ProfilePage" />
+
+    </TabBar>
+
 </Shell>
+

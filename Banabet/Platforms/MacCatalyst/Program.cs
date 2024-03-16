@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Banabet
+namespace BanaBet
 {
     public class Program
     {

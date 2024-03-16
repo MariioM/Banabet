@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BanaBet.ViewModel;
+using Microsoft.Extensions.Logging;
 
-namespace Banabet
+namespace BanaBet
 {
     public static class MauiProgram
     {
@@ -13,12 +14,14 @@ namespace Banabet
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Poppins-Regular.ttf", "Poppins");
+                    fonts.AddFont("Poppins-Medium.ttf", "PoppinsMedium");
+                    fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemi");
+                    fonts.AddFont("Poppins-Bold.ttf", "PoppinsBold");
                 });
-
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
-
+            //Singleton es para crear una copia
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainViewModel>();
             return builder.Build();
         }
     }
