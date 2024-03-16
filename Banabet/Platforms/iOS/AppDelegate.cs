@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Banabet
+namespace BanaBet
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

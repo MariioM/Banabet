@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Banabet.RegisterPage"
+             x:Class="BanaBet.RegisterPage"
              Title="RegisterPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
+
+        <Grid RowDefinitions="*,*" Margin="10, 0, 0, 0">
+            <Label Text="Crear una cuenta"
+               TextColor="#303030"
+               FontSize="25"
+               FontFamily="PoppinsBold"/>
+            <Label Text="Empieza tu viaje con nosotros"
+               TextColor="#8E8E8E"
+               Grid.Row="1"
+               FontSize="15"
+               FontFamily="PoppinsMedium"/>
+        </Grid>
+
+        <StackLayout Spacing="10">
+            <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_fullname_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Nombre de usuario" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_mail_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Correo electrónico" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="2" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_password_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Image Source="register_show_icon.sbg " WidthRequest="24" HeightRequest="24" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+        <Button Text="Crear Cuenta" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502">
+
+            <Button.Shadow>
+                <Shadow 
+            Brush="#F9A502"
+            Offset="5, 5"
+            Radius="40"
+            Opacity="0.5" />
+
+            </Button.Shadow>
+
+        </Button>
+
+        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+
+            <Label Text="Ya tengo una cuenta" FontFamily="Poppins" TextColor="#575757" />
+            <Label Text="Inicia sesión" FontFamily="PoppinsSemi" TextColor="#EA9413" TextDecorations="Underline"/>
+
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

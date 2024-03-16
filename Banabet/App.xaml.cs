@@ -1,4 +1,4 @@
-﻿namespace Banabet
+﻿namespace BanaBet
 {
     public partial class App : Application
     {
