@@ -1,11 +1,14 @@
-﻿namespace Banabet
+﻿using BanaBet.ViewModel;
+
+namespace BanaBet
 {
     public partial class MainPage : ContentPage
     {
 
-        public MainPage()
+        public MainPage(MainViewModel vm)
         {
             InitializeComponent();
+            BindingContext = vm;
         }
     }
 

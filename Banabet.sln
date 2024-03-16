@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banabet", "Banabet\Banabet.csproj", "{CD742C94-D5F2-49D0-B692-196BD87B642E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BanaBet", "Banabet\BanaBet.csproj", "{CD742C94-D5F2-49D0-B692-196BD87B642E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

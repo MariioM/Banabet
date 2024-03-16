@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Banabet.MainPage"
+             x:Class="BanaBet.MainPage"
+             xmlns:viewmodel="clr-namespace:BanaBet.ViewModel"
+             x:DataType="viewmodel:MainViewModel"
              Shell.NavBarIsVisible="False"
              Title="Home">
 
@@ -15,24 +17,27 @@
 
                 <StackLayout Orientation="Horizontal" Spacing="45" HorizontalOptions="Center">
 
-                    <Label Text="37"
+                    <Label Text="{Binding Diferencia.Days}"
                            TextColor="#F9A502" 
                            FontSize="52"
                            FontFamily="PoppinsSemi"/>
 
-                    <Label Text="13"
+
+                    <Label Text="{Binding Diferencia.Hours}"
                            TextColor="#F9A502" 
                            FontSize="52"
                            FontFamily="PoppinsSemi"
                            Grid.Column="1"
                            />
-                    <Label Text="56"
+                    <Label Text="{Binding Diferencia.Minutes}"
                            TextColor="#F9A502" 
                            FontSize="52"
                            FontFamily="PoppinsSemi"
                            Grid.Column="2"
                            />
-
+                    <Button
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
+                        CommandParameter="{Binding .}"></Button>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Spacing="50" Grid.Row="1" HorizontalOptions="Center">
@@ -83,10 +88,31 @@
                     </Label.FormattedText>
                 </Label>
             </Grid>
+            <Grid>
 
-
+                <Frame>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                        Command="{Binding ContadorDineroCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Label Text="{Binding Contador}"
+                    FontFamily="PoppinsBold" 
+                    TextColor="#90A5B4"/>
+                </Frame>
+            </Grid>
+            <Grid>
+                <Frame>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=ReinicioCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Label Text="BOTON REINICIO"
+                           FontFamily="PoppinsBold" 
+                           TextColor="#90A5B4"/>
+                </Frame>
+            </Grid>
+            
         </StackLayout>
         <Image Source="home_bananamountain.png" Margin="0, 0, 0, 20" AbsoluteLayout.LayoutBounds="0, 10"/>
-
     </StackLayout>
 </ContentPage>
