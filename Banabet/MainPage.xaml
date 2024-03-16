@@ -2,11 +2,9 @@
     <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BanaBet.MainPage"
-             xmlns:viewmodel="clr-namespace:BanaBet.ViewModel"
-             x:DataType="viewmodel:MainViewModel"
-             Shell.NavBarIsVisible="False"
              xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
              x:DataType="viewmodel:MainViewModel"
+             Shell.NavBarIsVisible="False"
              Title="Home">
 
         <Grid RowSpacing="0">

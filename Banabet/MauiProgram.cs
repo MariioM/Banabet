@@ -1,4 +1,4 @@
-﻿using BanaBet.ViewModel;
+﻿using Banabet.ViewModel;
 using Microsoft.Extensions.Logging;
 
 namespace BanaBet
