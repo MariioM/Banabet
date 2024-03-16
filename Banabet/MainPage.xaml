@@ -38,12 +38,7 @@
                                TextColor="#F9A502" 
                                FontSize="52"
                                FontFamily="PoppinsBold"
-                               Grid.Column="2"
-                               />
-
-                        <Button
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
-                        CommandParameter="{Binding .}"></Button>
+                               Grid.Column="2"/>
 
                     </StackLayout>
 
@@ -88,41 +83,38 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Lo que en bananas suma la cantidad de " FontFamily="Poppins" TextColor="#90A5B4"/>
-                                <Span Text="100" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
-                                <Span Text=" Toneladas" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
-                                <Span Text=" que ocupan:" FontFamily="Poppins" TextColor="#90A5B4"/>
+                                <Span Text="{Binding Contador}" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
+                                <Span Text=" Kilos" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
                 </Grid>
-
-                <Grid>
-
-                    <Frame>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer
-                Command="{Binding ContadorDineroCommand}"></TapGestureRecognizer>
-                        </Frame.GestureRecognizers>
-                        <Label Text="{Binding Contador}"
-            FontFamily="PoppinsBold" 
-            TextColor="#90A5B4"/>
-                    </Frame>
-                </Grid>
-
-                <Grid>
-                    <Frame>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer
-                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=ReinicioCommand}"></TapGestureRecognizer>
-                        </Frame.GestureRecognizers>
-                        <Label Text="BOTON REINICIO"
-                   FontFamily="PoppinsBold" 
-                   TextColor="#90A5B4"/>
-                    </Frame>
-                </Grid>
-
             </StackLayout>
-            <Image Source="home_bananamountain.png" Margin="0, 0, 0, 20" AbsoluteLayout.LayoutBounds="0, 10"/>
+            <StackLayout>
+                <Grid
+                    Padding="44"
+                    ColumnDefinitions="*,*">
+
+                    <ImageButton
+                        AbsoluteLayout.LayoutBounds="1,10"
+                        Source="app_icon.svg"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
+                        CommandParameter="{Binding .}"></ImageButton>
+                        
+                    <ImageButton
+                        AbsoluteLayout.LayoutBounds="1,10"
+                        Grid.Column="1"
+                        Source="app_icon.svg"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=ContadorDineroCommand}"
+                        CommandParameter="{Binding .}"/>
+                </Grid>
+            </StackLayout>
+            
+    
+            <Image
+                Margin="0,40,0,0"
+                Source="home_bananamountain.png"
+                AbsoluteLayout.LayoutBounds="2, 10"/>
 
         </StackLayout>
 

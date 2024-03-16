@@ -52,4 +52,5 @@ public partial class MainViewModel : ObservableObject
             await Task.Delay(1000);
         }
     }
+    //Solo 3 decimales en los kilos de platanos
 }
