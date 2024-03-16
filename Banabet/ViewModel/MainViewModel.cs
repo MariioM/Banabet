@@ -16,7 +16,7 @@ public partial class MainViewModel : ObservableObject
     float precioKgBanana = 1;
     //Del forms
     [ObservableProperty]
-    float apuestaMensual = 500;
+    float apuestaMensual = 500000;
     [ObservableProperty]
     float contador;
     [ObservableProperty]
