@@ -18,12 +18,6 @@
         </Grid>
 
         <StackLayout Spacing="10">
-            <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
-                <StackLayout Orientation="Horizontal" Spacing="5">
-                    <Image Source="register_fullname_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Nombre de usuario" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
-                </StackLayout>
-            </Frame>
             <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_mail_icon.svg" WidthRequest="24" HeightRequest="24" />
@@ -33,8 +27,14 @@
             <Frame Grid.Row="2" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_password_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" IsPassword="True"/>
                     <Image Source="register_show_icon.sbg " WidthRequest="24" HeightRequest="24" />
+                </StackLayout>
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_fullname_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Nombre de contacto de emergencia" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </Frame>
         </StackLayout>
