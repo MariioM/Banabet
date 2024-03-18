@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BanaBet.RegisterPage"
-             Title="RegisterPage">
+             Title="RegisterPage"
+             Shell.NavBarIsVisible="False">
     <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
 
         <Grid RowDefinitions="*,*" Margin="10, 0, 0, 0">
@@ -37,9 +38,21 @@
                     <Entry Placeholder="Nombre de contacto de emergencia" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </Frame>
+            <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_phone_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Teléfono de contacto de emergencia" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_money_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Estimación dinero apostado mensualmente" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
 
-        <Button Text="Crear Cuenta" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502">
+        <Button Text="Continuar" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502">
 
             <Button.Shadow>
                 <Shadow 
