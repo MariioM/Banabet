@@ -22,6 +22,17 @@ namespace BanaBet
             //Singleton es para crear una copia
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
+
+            builder.Services.AddSingleton<RegisterPage>();
+            builder.Services.AddSingleton<RegisterViewModel>();
+
+            builder.Services.AddTransient<FormPage1>();
+            builder.Services.AddTransient<FormPage2>();
+            builder.Services.AddTransient<FormPage3>();
+            builder.Services.AddTransient<FormPage4>();
+            builder.Services.AddTransient<FormPage5>();
+            builder.Services.AddTransient<MainPage>();
+
             return builder.Build();
         }
     }

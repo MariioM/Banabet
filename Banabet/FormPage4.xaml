@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BanaBet.FormPage4"
              Title="FormPage4"
+             xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
+             x:DataType="viewmodel:RegisterViewModel"
              Shell.NavBarIsVisible="False">
     <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
         <Image Source="form_image4.svg" Margin="0, 0, 0, 20"/>
@@ -25,8 +27,12 @@
        TextColor="#797979"/>
         <Image Source="form_bar4.svg" Margin="10, 0, 10, 0"/>
         <VerticalStackLayout Spacing="10">
-            <Button Text="Siguiente" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"/>
-            <Button Text="Continuar" Grid.Row="1" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#90A5B4" />
+            <Button Text="Siguiente" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=FormLastTapCommand}"
+                    CommandParameter="{Binding .}"/>
+            <Button Text="Omitir Tutorial" Grid.Row="1" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#90A5B4" 
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=SkipCommand}"
+                    CommandParameter="{Binding .}"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
