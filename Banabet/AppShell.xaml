@@ -18,7 +18,7 @@
 
         Title="Asistencia"
         Icon="menu_asistencia"
-        ContentTemplate="{DataTemplate local:FormPage4}"
+        ContentTemplate="{DataTemplate local:FormPage5}"
         Route="HomePage" />
 
         <ShellContent
