@@ -23,7 +23,7 @@
                HorizontalTextAlignment="Center"
                FontSize="16"
                TextColor="#797979"/>
-        <Image Source="form_bar1.svg" Margin="10 0 10 0"/>
+        <Image Source="form_bar1.svg" Margin="10, 0, 10, 0"/>
         <VerticalStackLayout Spacing="10">
         <Button Text="Siguiente" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"/>
         <Button Text="Continuar" Grid.Row="1" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#90A5B4" />

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BanaBet.FormPage3"
+             Title="FormPage3"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
+        <Image Source="form_image3.svg" WidthRequest="54" HeightRequest="78"/>
+        <Label FontSize="24"
+           HorizontalOptions="Center"
+           HorizontalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Consigue" TextColor="#797979"/>
+                    <Span Text=" riqueza en forma de bananas" FontFamily="PoppinsBold"  TextColor="#797979"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Text="A cada minuto que pasa sin apostar o jugar, consigues una banana más. Cuanto mas tiempo consigas, mas toneladas de bananas consigues, pudiendo conseguir insignias y ¡jugarte el podio con otros usuarios!" 
+           FontFamily="Poppins" 
+           HorizontalOptions="Center"
+           HorizontalTextAlignment="Center"
+           FontSize="16"
+           TextColor="#797979"/>
+        <Image Source="form_bar3.svg" Margin="10, 0, 10, 0"/>
+        <VerticalStackLayout Spacing="10">
+            <Button Text="Siguiente" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"/>
+            <Button Text="Continuar" Grid.Row="1" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#90A5B4" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
