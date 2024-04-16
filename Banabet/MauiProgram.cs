@@ -1,4 +1,5 @@
-﻿using Banabet.ViewModel;
+﻿using Banabet.Services;
+using Banabet.ViewModel;
 using Microsoft.Extensions.Logging;
 
 namespace BanaBet
@@ -31,7 +32,12 @@ namespace BanaBet
             builder.Services.AddTransient<FormPage3>();
             builder.Services.AddTransient<FormPage4>();
             builder.Services.AddTransient<FormPage5>();
+
             builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<RegisterPage>();
+            builder.Services.AddTransient<LoadingPage>();
+            builder.Services.AddTransient<AuthService>();
+            builder.Services.AddTransient<ProfilePage>();
 
             return builder.Build();
         }

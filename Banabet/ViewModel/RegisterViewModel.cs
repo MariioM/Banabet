@@ -1,4 +1,5 @@
-﻿using BanaBet;
+﻿using Banabet.Services;
+using BanaBet;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -7,10 +8,14 @@ namespace Banabet.ViewModel
     public partial class RegisterViewModel : ObservableObject
     {
 
+
+        AuthService authService = new AuthService();
+
         [RelayCommand]
         async Task RegisterTap()
         {
-            await Shell.Current.GoToAsync(nameof(FormPage1));
+            authService.Login();
+            await Shell.Current.GoToAsync($"//{nameof(FormPage1)}");
         }  
         
         [RelayCommand]
@@ -40,7 +45,7 @@ namespace Banabet.ViewModel
         [RelayCommand]
         async Task Skip()
         {
-            await Shell.Current.GoToAsync(nameof(MainPage));
+            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
     }
 }
