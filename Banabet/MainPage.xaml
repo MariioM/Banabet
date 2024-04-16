@@ -21,7 +21,7 @@
 
                 <Grid RowDefinitions=".8*,*" >
 
-                    <StackLayout Orientation="Horizontal" Spacing="45" HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal" Spacing="80" HorizontalOptions="Center">
 
                         <Label Text="{Binding Diferencia.Days}"
                                TextColor="#F9A502" 
@@ -72,7 +72,7 @@
                  ProgressColor="#FFB340"
                  ScaleY="3"
                  Grid.ColumnSpan="2"/>
-                    <Image Source="progress_foot.svg" Grid.Row="1" Grid.ColumnSpan="2" Margin="5, 0, 0, 0"/>
+                    <Image Source="progress_foot.svg" Grid.Row="1" Grid.ColumnSpan="2" Margin="0, 5, 0, 0" WidthRequest="350"/>
 
                 </Grid>
                 <Grid HorizontalOptions="Center" WidthRequest="320">
@@ -85,36 +85,16 @@
                                 <Span Text="Lo que en bananas suma la cantidad de " FontFamily="Poppins" TextColor="#90A5B4"/>
                                 <Span Text="{Binding Contador}" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
                                 <Span Text=" Kilos" FontFamily="PoppinsBold" TextColor="#90A5B4"/>
+                                <Span Text=" que ocupan:" FontFamily="Poppins" TextColor="#90A5B4"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
                 </Grid>
             </StackLayout>
-            <StackLayout>
-                <Grid
-                    Padding="44"
-                    ColumnDefinitions="*,*">
-
-                    <ImageButton
-                        AbsoluteLayout.LayoutBounds="1,10"
-                        Source="app_icon.svg"
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
-                        CommandParameter="{Binding .}"></ImageButton>
-                        
-                    <ImageButton
-                        AbsoluteLayout.LayoutBounds="1,10"
-                        Grid.Column="1"
-                        Source="app_icon.svg"
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=ContadorDineroCommand}"
-                        CommandParameter="{Binding .}"/>
-                </Grid>
-            </StackLayout>
-            
-    
             <Image
-                Margin="0,40,0,0"
+                Margin="0,0,0,0"
                 Source="home_bananamountain.png"
-                AbsoluteLayout.LayoutBounds="2, 10"/>
+                AbsoluteLayout.LayoutBounds="2, 20"/>
 
         </StackLayout>
 

@@ -7,10 +7,21 @@ namespace Banabet.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
+    public List<ImageSource> IconosLogros { get; set; }
     public MainViewModel()
     {
-
+        //Carrusel logros
+        IconosLogros = new List<ImageSource>
+        {
+            ImageSource.FromFile("carrousel_house.svg"),
+            ImageSource.FromFile("carrousel_city.svg"),
+            ImageSource.FromFile("carrousel_country.svg"),
+            ImageSource.FromFile("carrousel_country_disabled.svg"),
+            ImageSource.FromFile("carrousel_country_disabled.svg"),
+            ImageSource.FromFile("carrousel_country_disabled.svg"),
+        };
     }
+
     [ObservableProperty]
     float precioKgBanana = 1;
     //Del forms
@@ -52,4 +63,5 @@ public partial class MainViewModel : ObservableObject
         }
     }
     //Solo 3 decimales en los kilos de platanos
+
 }
