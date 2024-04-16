@@ -14,6 +14,6 @@ public partial class ProfilePage : ContentPage
 	private async void TapLogOut(object sender, EventArgs e)
 	{
 		_authService.Logout();
-		await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
+		await Shell.Current.GoToAsync(nameof(RegisterPage));
 	}
 }

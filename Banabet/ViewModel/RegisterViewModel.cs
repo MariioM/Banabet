@@ -15,7 +15,7 @@ namespace Banabet.ViewModel
         async Task RegisterTap()
         {
             authService.Login();
-            await Shell.Current.GoToAsync($"//{nameof(FormPage1)}");
+            await Shell.Current.GoToAsync(nameof(FormPage1));
         }  
         
         [RelayCommand]
