@@ -122,14 +122,7 @@
         <AbsoluteLayout Grid.Row="1" 
                         HorizontalOptions="FillAndExpand" 
                         VerticalOptions="FillAndExpand">
-            <Button Text="!"
-                    AbsoluteLayout.LayoutBounds="0.5, 1, 0.15, 10"
-                    AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" 
-                    BackgroundColor="#FFB340"
-                    TextColor="White"
-                    FontFamily="PoppinsMedium"
-                    CornerRadius="50"
-                    HeightRequest="60"/>
+            <ImageButton Source="panic_buttton.svg" Margin="150, 0, 0, 0" />
         </AbsoluteLayout>
     </Grid>
 </ContentPage>
