@@ -4,7 +4,7 @@
              x:Class="BanaBet.LoadingPage"
              Title="LoadingPage"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="True"
+             Shell.TabBarIsVisible="False"
              BackgroundColor="#f9a608">
     <VerticalStackLayout>
         <Image Source="app_icon.svg" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100"/>

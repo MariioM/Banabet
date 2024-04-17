@@ -11,7 +11,7 @@ namespace Banabet.Services
         private const string AuthStateKey = "AuthState";
         public async Task<bool> IsAutheticated()
         {
-            await Task.Delay(1000);
+            await Task.Delay(500);
 
             var authState = Preferences.Default.Get<bool>(AuthStateKey, false);
 

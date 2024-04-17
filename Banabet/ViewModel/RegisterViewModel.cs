@@ -45,6 +45,7 @@ namespace Banabet.ViewModel
         [RelayCommand]
         async Task Skip()
         {
+            await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
     }
