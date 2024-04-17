@@ -10,9 +10,5 @@
             HorizontalOptions="Center" />
         <Button Text="Log Out"
                 Clicked="TapLogOut"/>
-        <Button Text="Reiniciar"
-                Clicked="TapReset" />
-        <Button Text="Hacer"
-        Clicked="TapSet" />
     </VerticalStackLayout>
 </ContentPage>

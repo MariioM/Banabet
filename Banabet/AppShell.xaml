@@ -11,10 +11,6 @@
         Title="Loading"
         ContentTemplate="{DataTemplate local:LoadingPage}"
         Route="LoadingPage"/>
-    
-    <TabBar>
-
-        
 
     <TabBar>
 
