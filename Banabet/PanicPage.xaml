@@ -4,70 +4,72 @@
              x:Class="BanaBet.PanicPage"
              xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
              xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+                  xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
              x:DataType="viewmodel:PanicViewModel"
              Shell.NavBarIsVisible="False"
-             Title="PanicPage"
-             BackgroundColor="Aqua"
-             >
-
-    <Grid RowSpacing="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <StackLayout Spacing="20" Padding="20, 40, 20, -50" Grid.Row="0">
+             Title="PanicPage">
+    <mopups:PopupPage.Animation>
+        <mopupsanim:ScaleAnimation
+            DurationIn="700"
+            EasingIn="BounceOut"
+            PositionIn="Bottom"
+            PositionOut="Center"
+            ScaleIn="1"
+            ScaleOut="0.7"/>
+    </mopups:PopupPage.Animation>
+    <Frame WidthRequest="342" HeightRequest="477" BackgroundColor="#FAFAFA" CornerRadius="10">
+        <StackLayout Spacing="20" Padding="20, 10, 20, -50" Grid.Row="0">
 
             <Grid RowDefinitions=".8*,*" >
 
                 <StackLayout Orientation="Horizontal" Spacing="80" HorizontalOptions="Center">
 
                     <Label Text="{Binding Mins}"
-                               TextColor="#F9A502" 
-                               FontSize="52"
-                               FontFamily="PoppinsBold"
-                               Grid.Column="1"
-                               />
+                        TextColor="#F9A502" 
+                        FontSize="52"
+                        FontFamily="PoppinsBold"
+                        Grid.Column="1"
+                        />
                     <Label Text="{Binding Secs}"
-                               TextColor="#F9A502" 
-                               FontSize="52"
-                               FontFamily="PoppinsBold"
-                               Grid.Column="2"/>
+                        TextColor="#F9A502" 
+                        FontSize="52"
+                        FontFamily="PoppinsBold"
+                        Grid.Column="2"/>
 
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Spacing="60" Grid.Row="1" HorizontalOptions="Center">
                     <Label Text="mins"   
-                               FontFamily="PoppinsMedium"
-                               FontSize="20"
-                               TextColor="#797979"
-                               HorizontalOptions="Center"
-                               />
+                        FontFamily="PoppinsMedium"
+                        FontSize="20"
+                        TextColor="#797979"
+                        HorizontalOptions="Center"
+                        />
                     <Label Text="secs" 
-                               FontFamily="PoppinsMedium"
-                               FontSize="20"
-                               TextColor="#797979"
-                               HorizontalOptions="Center"
-                               />
+                        FontFamily="PoppinsMedium"
+                        FontSize="20"
+                        TextColor="#797979"
+                        HorizontalOptions="Center"
+                        />
 
                 </StackLayout>
             </Grid>
-                    <StackLayout  Grid.Row="2" Orientation="Vertical"  Spacing="60" HorizontalOptions="Center">
-                        <Button Text="Llamar a contacto de emergencia"></Button>
-                        <Button Text="Pedir ayuda psicológica"></Button>
-                        <Button Text="He recaído"
-                                IsEnabled="{Binding ShowButton}"
-                                Clicked="Restart"></Button>
-                    </StackLayout>
+            <StackLayout  Grid.Row="2" Orientation="Vertical"  Spacing="20" HorizontalOptions="Center">
+                <Button Text="Llamar a contacto de emergencia" WidthRequest="302" HeightRequest="56" FontFamily="PoppinsSemi" FontSize="16" TextColor="White" BackgroundColor="#F9A502"></Button>
+
+                <Button Text="Pedir ayuda psicológica" WidthRequest="302" HeightRequest="56" FontFamily="PoppinsSemi" FontSize="16" TextColor="White" BackgroundColor="#F9A502" ></Button>
                 
+                <Button Text="He recaído"
+                        Clicked="Restart" WidthRequest="302" HeightRequest="56" FontFamily="PoppinsSemi" FontSize="16" TextColor="White" BackgroundColor="#90A5B4"></Button>
             </StackLayout>
-
-
-        <AbsoluteLayout Grid.Row="1" 
-                        HorizontalOptions="FillAndExpand" 
-                        VerticalOptions="FillAndExpand">
-            <ImageButton Source="panic_buttton.svg" Margin="150, 0, 0, 0"
-                         Clicked ="Atras"/>
-        </AbsoluteLayout>
-    </Grid>
+            
+            <AbsoluteLayout Grid.Row="1" 
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand">
+                <ImageButton Source="panic_buttton.svg" Margin="95, 0, 0, 10" IsEnabled="{Binding ShowButton}" WidthRequest="70" 
+                 Clicked ="Atras"/>
+            </AbsoluteLayout>
+        </StackLayout>
+    </Frame>
+    
 </mopups:PopupPage>
