@@ -7,14 +7,14 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MauiApp1">
 
-
-    <TabBar>
-
-        <ShellContent 
+    <ShellContent 
         Title="Loading"
         ContentTemplate="{DataTemplate local:LoadingPage}"
-        Route="LoadingPage" 
-        />
+        Route="LoadingPage"/>
+    
+    <TabBar>
+
+        
 
         <ShellContent 
         Title="Home"

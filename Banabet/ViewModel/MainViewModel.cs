@@ -1,5 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Mopups.Services;
+using Banabet.ViewModel;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
@@ -36,29 +38,20 @@ public partial class MainViewModel : ObservableObject
     TimeSpan diferencia = new TimeSpan();
 
 
-    [RelayCommand]
-    async Task Tap()
-    {
-        while (true)
-        {
-            DateTime ahora = DateTime.Now;
-            Diferencia = ahora - Fecha_ini;
-            await Task.Delay(1000);
-        }
-    }
-    [RelayCommand]
-    void Reinicio()
+    public void ReinicioPublico()
     {
         Fecha_ini = DateTime.Now;
         Contador = 0;
     }
-    [RelayCommand]
-    async Task ContadorDinero()
+
+    public async Task EmpezarPublico()
     {
         float ahorro = ApuestaMensual / 43200;
         while (true)
         {
             Contador += ahorro;
+            DateTime ahora = DateTime.Now;
+            Diferencia = ahora - Fecha_ini;
             await Task.Delay(1000);
         }
     }

@@ -5,9 +5,15 @@ namespace BanaBet;
 
 public partial class RegisterPage : ContentPage
 {
-	public RegisterPage(RegisterViewModel vm)
+    private readonly MainViewModel _mainViewModel;
+	public RegisterPage(RegisterViewModel vm, MainViewModel mainViewModel)
 	{
         InitializeComponent();
         BindingContext = vm;
+        _mainViewModel = mainViewModel;
+    }
+    private async void TapSet(object sender, EventArgs e)
+    {
+        await _mainViewModel.EmpezarPublico();
     }
 }
