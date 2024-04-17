@@ -16,17 +16,17 @@ namespace Banabet.ViewModel
             _ = StartTimer();
         }
         [ObservableProperty]
-        string secs = "3", mins = "0";
+        string secs = "30", mins = "0";
         [ObservableProperty]
         bool reinicio = false;
         [ObservableProperty]
-        int sec = 3, min = 0;
+        int sec = 30, min = 0;
         [ObservableProperty]
         bool showButton = false;
         [RelayCommand]
         async Task StartTimer()
         {
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 30; i++)
             {
                 Sec--;
                 Secs = Convert.ToString(Sec);
