@@ -1,9 +1,13 @@
+using Banabet.Services;
+using Banabet.ViewModel;
+
 namespace BanaBet;
 
 public partial class RegisterPage : ContentPage
 {
-	public RegisterPage()
+	public RegisterPage(RegisterViewModel vm)
 	{
         InitializeComponent();
+        BindingContext = vm;
     }
 }

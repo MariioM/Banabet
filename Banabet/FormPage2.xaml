@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BanaBet.FormPage2"
+             Title="FormPage2"
+             xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
+             x:DataType="viewmodel:RegisterViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+    <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
+        <Image Source="form_image2.svg" Margin="0, 0, 0, 20"/>
+        <Label FontSize="22"
+           HorizontalOptions="Center"
+           HorizontalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Se" FontFamily="Poppins" TextColor="#797979"/>
+                    <Span Text=" consciente del tiempo que llevas sin jugar" FontFamily="PoppinsBold" TextColor="#797979"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Text="Siempre visible en la pantalla principal, cada día es un paso más para controlar el juego y que no te controle a ti" 
+           FontFamily="Poppins" 
+           HorizontalOptions="Center"
+           HorizontalTextAlignment="Center"
+           FontSize="15"
+           TextColor="#797979"/>
+        <Image Source="form_bar2.svg" Margin="10, 0, 10, 0"/>
+        <VerticalStackLayout Spacing="10">
+            <Button Text="Siguiente" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=FormSecondTapCommand}"
+                    CommandParameter="{Binding .}"/>
+            <Button Text="Omitir Tutorial" Grid.Row="1" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#90A5B4" 
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=SkipCommand}"
+                    CommandParameter="{Binding .}"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
