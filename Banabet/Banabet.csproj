@@ -83,6 +83,9 @@
 	  <MauiXaml Update="LoadingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PanicPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

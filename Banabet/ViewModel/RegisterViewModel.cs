@@ -42,7 +42,19 @@ namespace Banabet.ViewModel
         {
             await Shell.Current.GoToAsync(nameof(FormPage5));
         }
-        
+
+        [RelayCommand]
+        async Task GoToRegister()
+        {
+            await Shell.Current.GoToAsync(nameof(RegisterPage));
+        }
+
+        [RelayCommand]
+        async Task GoToLogin()
+        {
+            await Shell.Current.GoToAsync(nameof(LoginPage));
+        }
+
         [RelayCommand]
         async Task Skip()
         {

@@ -39,6 +39,7 @@ namespace BanaBet
             builder.Services.AddTransient<LoadingPage>();
             builder.Services.AddTransient<AuthService>();
             builder.Services.AddTransient<ProfilePage>();
+            builder.Services.AddTransient<LoginPage>();
 
             return builder.Build();
         }

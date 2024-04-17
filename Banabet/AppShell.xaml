@@ -23,13 +23,13 @@
         <ShellContent
         Title="Asistencia"
         Icon="menu_asistencia"
-        ContentTemplate="{DataTemplate local:RegisterPage}"
+        ContentTemplate="{DataTemplate local:MainPage}"
         Route="HomePage" />
 
         <ShellContent
         Title="Comunidad"
         Icon="menu_comunidad"
-        ContentTemplate="{DataTemplate local:RegisterPage}"
+        ContentTemplate="{DataTemplate local:MainPage}"
         Route="FormPage1" />
 
         <ShellContent

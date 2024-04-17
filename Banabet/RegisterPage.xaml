@@ -73,8 +73,19 @@
 
         <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
 
-            <Label Text="Ya tengo una cuenta" FontFamily="Poppins" TextColor="#575757" />
-            <Label Text="Inicia sesión" FontFamily="PoppinsSemi" TextColor="#EA9413" TextDecorations="Underline"/>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Ya tengo una cuenta " FontFamily="Poppins" TextColor="#575757"/>
+                        <Span Text="Iniciar sesión" FontFamily="PoppinsSemi" TextColor="#EA9413" TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToLoginCommand}"
+                                  CommandParameter="{Binding .}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
         </StackLayout>
     </VerticalStackLayout>

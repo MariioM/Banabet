@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
+             x:DataType="viewmodel:RegisterViewModel"
+             x:Class="BanaBet.LoginPage"
+             Title="LoginPage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    
+    <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
+
+        <Grid RowDefinitions="*,*" Margin="10, 0, 0, 0">
+            <Label Text="Iniciar Sesión"
+               TextColor="#303030"
+               FontSize="25"
+               FontFamily="PoppinsBold"/>
+            <Label Text="Nos alegramos de verte de nuevo!"
+               TextColor="#8E8E8E"
+               Grid.Row="1"
+               FontSize="15"
+               FontFamily="PoppinsMedium"/>
+        </Grid>
+
+        <StackLayout Spacing="10">
+            <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_mail_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Correo electrónico" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="2" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="register_password_icon.svg" WidthRequest="24" HeightRequest="24" />
+                    <Entry Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" IsPassword="True"/>
+                    <Image Source="register_show_icon.sbg " WidthRequest="24" HeightRequest="24" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+        <Button Text="Iniciar sesión" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=RegisterTapCommand}"
+                CommandParameter="{Binding .}">
+
+            <Button.Shadow>
+                <Shadow 
+            Brush="#F9A502"
+            Offset="5, 5"
+            Radius="40"
+            Opacity="0.5" />
+
+            </Button.Shadow>
+
+        </Button>
+
+
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="¿Aún no estás registrado? " FontFamily="Poppins" TextColor="#575757"/>
+                    <Span Text="Registrate aquí" FontFamily="PoppinsSemi" TextColor="#EA9413" TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToRegisterCommand}"
+                                          CommandParameter="{Binding .}" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+    </VerticalStackLayout>
+</ContentPage>
