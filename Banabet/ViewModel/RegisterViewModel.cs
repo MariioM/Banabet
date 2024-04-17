@@ -65,8 +65,21 @@ namespace Banabet.ViewModel
                 authService.Login();
                 await Shell.Current.GoToAsync(nameof(FormPage1));
             }    
-        }  
-        
+        }
+
+        [RelayCommand]
+        async Task LoginTap()
+        {
+            bool success = dbManager.ComprobarUsuarioExiste(LoginEmail, LoginPassword);
+            if (success)
+            {
+                Console.WriteLine("Login completo!");
+                authService.Login();
+                await Shell.Current.GoToAsync(nameof(FormPage1));
+            }
+            
+        }
+
         [RelayCommand]
         async Task FormFirstTap()
         {

@@ -39,7 +39,7 @@
         </StackLayout>
 
         <Button Text="Iniciar sesión" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"
-                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=RegisterTapCommand}"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=LoginTapCommand}"
                 CommandParameter="{Binding .}"
                 IsEnabled="{Binding IsLoginButtonEnabled}">
 
