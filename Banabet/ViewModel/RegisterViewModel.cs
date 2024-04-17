@@ -1,8 +1,10 @@
-﻿using Banabet.Services;
+﻿using Android.Hardware.Usb;
+using Banabet.Services;
 using BanaBet;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Text.RegularExpressions;
+using static Android.Provider.ContactsContract.CommonDataKinds;
 
 namespace Banabet.ViewModel
 {
@@ -17,7 +19,7 @@ namespace Banabet.ViewModel
         [ObservableProperty]
         string emergencyContactNumber;
         [ObservableProperty]
-        float estimatedMoney;
+        decimal estimatedMoney;
 
         [ObservableProperty]
         string loginEmail;
@@ -29,7 +31,7 @@ namespace Banabet.ViewModel
         [ObservableProperty]
         bool isLoginButtonEnabled;
 
-
+        DatabaseManager dbManager = new DatabaseManager();
         AuthService authService = new AuthService();
 
         public async Task CheckFields()
@@ -56,8 +58,13 @@ namespace Banabet.ViewModel
         [RelayCommand]
         async Task RegisterTap()
         {
-            authService.Login();
-            await Shell.Current.GoToAsync(nameof(FormPage1));
+            bool success = dbManager.EnviarDatosRegistroBase(Email, Password, EmergencyContactName, EmergencyContactNumber, EstimatedMoney);
+            if (success)
+            {
+                Console.WriteLine("Registro completo!");
+                authService.Login();
+                await Shell.Current.GoToAsync(nameof(FormPage1));
+            }    
         }  
         
         [RelayCommand]
