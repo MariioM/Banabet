@@ -57,7 +57,8 @@
 
         <Button Text="Continuar" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"
                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=RegisterTapCommand}"
-                CommandParameter="{Binding .}">
+                CommandParameter="{Binding .}"
+                Clicked="TapSet">
 
             <Button.Shadow>
                 <Shadow 

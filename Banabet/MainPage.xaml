@@ -4,8 +4,7 @@
              x:Class="BanaBet.MainPage"
              xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
              x:DataType="viewmodel:MainViewModel"
-             Shell.NavBarIsVisible="False"
-             Title="Home">
+             Shell.NavBarIsVisible="False">
 
         <Grid RowSpacing="0">
         <Grid.RowDefinitions>
@@ -102,7 +101,8 @@
         <AbsoluteLayout Grid.Row="1" 
                         HorizontalOptions="FillAndExpand" 
                         VerticalOptions="FillAndExpand">
-            <ImageButton Source="panic_buttton.svg" Margin="150, 0, 0, 0" />
+            <ImageButton Source="panic_buttton.svg" Margin="150, 0, 0, 0"
+                         Clicked="Panico"/>
         </AbsoluteLayout>
     </Grid>
 </ContentPage>

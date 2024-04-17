@@ -26,7 +26,8 @@ namespace BanaBet
 
             builder.Services.AddSingleton<RegisterPage>();
             builder.Services.AddSingleton<RegisterViewModel>();
-
+            builder.Services.AddSingleton<PanicPage>();
+            builder.Services.AddSingleton<PanicViewModel>();
             builder.Services.AddTransient<FormPage1>();
             builder.Services.AddTransient<FormPage2>();
             builder.Services.AddTransient<FormPage3>();

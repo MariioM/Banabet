@@ -8,13 +8,14 @@ namespace Banabet.ViewModel
     public partial class RegisterViewModel : ObservableObject
     {
 
-
+        //private readonly MainViewModel _mainViewModel = new MainViewModel();
         AuthService authService = new AuthService();
 
         [RelayCommand]
         async Task RegisterTap()
         {
             authService.Login();
+            // _mainViewModel.EmpezarPublico();
             await Shell.Current.GoToAsync(nameof(FormPage1));
         }  
         

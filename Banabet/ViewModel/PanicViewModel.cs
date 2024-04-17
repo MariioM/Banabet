@@ -11,20 +11,31 @@ namespace Banabet.ViewModel
     public partial class PanicViewModel : ObservableObject
     {
 
-        private bool _isScreenLocked;
-
-        public bool IsScreenLocked
+        public PanicViewModel()
         {
-            get => _isScreenLocked;
-            set => SetProperty(ref _isScreenLocked, value);
+            _ = StartTimer();
         }
+        [ObservableProperty]
+        string secs = "3", mins = "0";
+        [ObservableProperty]
+        bool reinicio = false;
+        [ObservableProperty]
+        int sec = 3, min = 0;
+        [ObservableProperty]
+        bool showButton = false;
         [RelayCommand]
-        public async Task LockScreenForSeconds(int seconds)
+        async Task StartTimer()
         {
-            IsScreenLocked = true;
-            await Task.Delay(seconds * 1000); // Delay for specified seconds
-            IsScreenLocked = false;
+            for(int i = 0; i < 3; i++)
+            {
+                Sec--;
+                Secs = Convert.ToString(Sec);
+                if(Sec == 0)
+                {
+                    ShowButton = true;
+                }
+                await Task.Delay(1000);
+            }
         }
-
     }
 }

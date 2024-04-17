@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BanaBet.PanicPage"
+             xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
+             xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+             x:DataType="viewmodel:PanicViewModel"
+             Shell.NavBarIsVisible="False"
+             Title="PanicPage"
+             BackgroundColor="Aqua"
+             >
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Spacing="20" Padding="20, 40, 20, -50" Grid.Row="0">
+
+            <Grid RowDefinitions=".8*,*" >
+
+                <StackLayout Orientation="Horizontal" Spacing="80" HorizontalOptions="Center">
+
+                    <Label Text="{Binding Mins}"
+                               TextColor="#F9A502" 
+                               FontSize="52"
+                               FontFamily="PoppinsBold"
+                               Grid.Column="1"
+                               />
+                    <Label Text="{Binding Secs}"
+                               TextColor="#F9A502" 
+                               FontSize="52"
+                               FontFamily="PoppinsBold"
+                               Grid.Column="2"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="60" Grid.Row="1" HorizontalOptions="Center">
+                    <Label Text="mins"   
+                               FontFamily="PoppinsMedium"
+                               FontSize="20"
+                               TextColor="#797979"
+                               HorizontalOptions="Center"
+                               />
+                    <Label Text="secs" 
+                               FontFamily="PoppinsMedium"
+                               FontSize="20"
+                               TextColor="#797979"
+                               HorizontalOptions="Center"
+                               />
+
+                </StackLayout>
+            </Grid>
+                    <StackLayout  Grid.Row="2" Orientation="Vertical"  Spacing="60" HorizontalOptions="Center">
+                        <Button Text="Llamar a contacto de emergencia"></Button>
+                        <Button Text="Pedir ayuda psicológica"></Button>
+                        <Button Text="He recaído"
+                                IsEnabled="{Binding ShowButton}"
+                                Clicked="Restart"></Button>
+                    </StackLayout>
+                
+            </StackLayout>
+
+
+        <AbsoluteLayout Grid.Row="1" 
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="FillAndExpand">
+            <ImageButton Source="panic_buttton.svg" Margin="150, 0, 0, 0"
+                         Clicked ="Atras"/>
+        </AbsoluteLayout>
+    </Grid>
+</mopups:PopupPage>

@@ -29,4 +29,5 @@ public partial class LoadingPage : ContentPage
 		}
 	}
 
+
 }
