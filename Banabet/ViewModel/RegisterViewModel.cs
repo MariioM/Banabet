@@ -2,20 +2,61 @@
 using BanaBet;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Text.RegularExpressions;
 
 namespace Banabet.ViewModel
 {
     public partial class RegisterViewModel : ObservableObject
     {
+        [ObservableProperty]
+        string email;
+        [ObservableProperty]
+        string password;
+        [ObservableProperty]
+        string emergencyContactName;
+        [ObservableProperty]
+        string emergencyContactNumber;
+        [ObservableProperty]
+        float estimatedMoney;
 
-        //private readonly MainViewModel _mainViewModel = new MainViewModel();
+        [ObservableProperty]
+        string loginEmail;
+        [ObservableProperty]
+        string loginPassword;
+
+        [ObservableProperty]
+        bool isRegisterButtonEnabled;
+        [ObservableProperty]
+        bool isLoginButtonEnabled;
+
+
         AuthService authService = new AuthService();
+
+        public async Task CheckFields()
+        {
+            await Task.Run(() =>
+            {
+                IsRegisterButtonEnabled = !string.IsNullOrEmpty(Email) &&
+                                          IsValidEmail(Email) &&
+                                          !string.IsNullOrEmpty(Password) &&
+                                          !string.IsNullOrEmpty(EmergencyContactName) &&
+                                          !string.IsNullOrEmpty(EmergencyContactNumber) &&
+                                          EstimatedMoney != 0;
+                IsLoginButtonEnabled = !string.IsNullOrEmpty(LoginEmail) &&
+                                       IsValidEmail(LoginEmail) &&
+                                       !string.IsNullOrEmpty(LoginPassword);
+            });
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        }
 
         [RelayCommand]
         async Task RegisterTap()
         {
             authService.Login();
-            // _mainViewModel.EmpezarPublico();
             await Shell.Current.GoToAsync(nameof(FormPage1));
         }  
         

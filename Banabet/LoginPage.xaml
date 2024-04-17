@@ -26,30 +26,22 @@
             <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_mail_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Correo electrónico" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry x:Name="LoginEmailEntry" Placeholder="Correo electrónico" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="{Binding LoginEmail, Mode=TwoWay}"/>
                 </StackLayout>
             </Frame>
             <Frame Grid.Row="2" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_password_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" IsPassword="True"/>
-                    <Image Source="register_show_icon.sbg " WidthRequest="24" HeightRequest="24" />
+                    <Entry x:Name="LoginPasswordEntry" Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" IsPassword="True" Text="{Binding LoginPassword, Mode=TwoWay}"/>
+                    <Image Source="register_show_icon.svg " WidthRequest="24" HeightRequest="24" />
                 </StackLayout>
             </Frame>
         </StackLayout>
 
         <Button Text="Iniciar sesión" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"
                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=RegisterTapCommand}"
-                CommandParameter="{Binding .}">
-
-            <Button.Shadow>
-                <Shadow 
-            Brush="#F9A502"
-            Offset="5, 5"
-            Radius="40"
-            Opacity="0.5" />
-
-            </Button.Shadow>
+                CommandParameter="{Binding .}"
+                IsEnabled="{Binding IsLoginButtonEnabled}">
 
         </Button>
 

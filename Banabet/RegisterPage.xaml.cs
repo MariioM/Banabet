@@ -11,6 +11,12 @@ public partial class RegisterPage : ContentPage
         InitializeComponent();
         BindingContext = vm;
         _mainViewModel = mainViewModel;
+
+        EmailEntry.TextChanged += async (sender, e) => await ((RegisterViewModel)BindingContext).CheckFields();
+        PasswordEntry.TextChanged += async (sender, e) => await ((RegisterViewModel)BindingContext).CheckFields();
+        EmergencyContactNameEntry.TextChanged += async (sender, e) => await ((RegisterViewModel)BindingContext).CheckFields();
+        EmergencyContactNumberEntry.TextChanged += async (sender, e) => await ((RegisterViewModel)BindingContext).CheckFields();
+        EstimatedMoneyEntry.TextChanged += async (sender, e) => await ((RegisterViewModel)BindingContext).CheckFields();
     }
     private async void TapSet(object sender, EventArgs e)
     {

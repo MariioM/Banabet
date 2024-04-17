@@ -25,32 +25,32 @@
             <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_mail_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Correo electrónico" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry x:Name="EmailEntry" Placeholder="Correo electrónico" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="{Binding Email, Mode=TwoWay}"/>
                 </StackLayout>
             </Frame>
             <Frame Grid.Row="2" HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_password_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" IsPassword="True"/>
+                    <Entry x:Name="PasswordEntry" Placeholder="Contraseña" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" IsPassword="True" Text="{Binding Password, Mode=TwoWay}"/>
                     <Image Source="register_show_icon.sbg " WidthRequest="24" HeightRequest="24" />
                 </StackLayout>
             </Frame>
             <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_fullname_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Nombre de contacto de emergencia" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry x:Name="EmergencyContactNameEntry" Placeholder="Nombre de contacto de emergencia" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="{Binding EmergencyContactName, Mode=TwoWay}"/>
                 </StackLayout>
             </Frame>
             <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_phone_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Teléfono de contacto de emergencia" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry x:Name="EmergencyContactNumberEntry" Placeholder="Teléfono de contacto de emergencia" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="{Binding EmergencyContactNumber, Mode=TwoWay}"/>
                 </StackLayout>
             </Frame>
             <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#E1E7EC" BorderColor="Transparent" HeightRequest="50" Padding="10, 0">
                 <StackLayout Orientation="Horizontal" Spacing="5">
                     <Image Source="register_money_icon.svg" WidthRequest="24" HeightRequest="24" />
-                    <Entry Placeholder="Estimación dinero apostado mensualmente" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry x:Name="EstimatedMoneyEntry" Placeholder="Estimación dinero apostado mensualmente" PlaceholderColor="#8E8E8E" FontFamily="Poppins" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="{Binding EstimatedMoney, Mode=TwoWay}"/>
                 </StackLayout>
             </Frame>
         </StackLayout>
@@ -58,17 +58,8 @@
         <Button Text="Continuar" FontFamily="Poppins" TextColor="White" FontSize="16"  HeightRequest="50" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="#F9A502"
                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterViewModel}}, Path=RegisterTapCommand}"
                 CommandParameter="{Binding .}"
-                Clicked="TapSet">
-
-            <Button.Shadow>
-                <Shadow 
-            Brush="#F9A502"
-            Offset="5, 5"
-            Radius="40"
-            Opacity="0.5" />
-
-            </Button.Shadow>
-
+                Clicked="TapSet"
+                IsEnabled="{Binding IsRegisterButtonEnabled}">
         </Button>
 
         <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
