@@ -67,6 +67,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AsistancePage.xaml.cs">
+	    <DependentUpon>AsistancePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AsistancePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CommunityPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="FormPage1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

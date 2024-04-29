@@ -6,7 +6,8 @@
              xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
              x:DataType="viewmodel:RegisterViewModel"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#FAFAFA">
     <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
         <Image Source="form_image4.svg" Margin="0, 0, 0, 20"/>
         <Label FontSize="22"

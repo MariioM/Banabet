@@ -6,7 +6,8 @@
              x:DataType="viewmodel:RegisterViewModel"
              Title="FormPage5"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#FAFAFA">
     <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
         <Image Source="form_image5.svg" WidthRequest="54" HeightRequest="78"/>
         <Label FontSize="24"

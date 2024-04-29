@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BanaBet.CommunityPage"
+             Title="CommunityPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#FAFAFA">
+    <VerticalStackLayout Spacing="20" VerticalOptions="Center" HorizontalOptions="Center">
+        <Image Source="community_icon.svg" HeightRequest="60"/>
+        <Label Text="Coming soon... " FontSize="30" FontFamily="PoppinsBold" TextColor="#797979" />
+    </VerticalStackLayout>
+</ContentPage>

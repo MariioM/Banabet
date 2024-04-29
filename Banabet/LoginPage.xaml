@@ -6,7 +6,8 @@
              x:Class="BanaBet.LoginPage"
              Title="LoginPage"
              Shell.TabBarIsVisible="False"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#FAFAFA">
     
     <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
 

@@ -6,7 +6,8 @@
              xmlns:viewmodel="clr-namespace:Banabet.ViewModel"
              x:DataType="viewmodel:RegisterViewModel"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#FAFAFA">
     
     <VerticalStackLayout Spacing="30" Padding="40"  VerticalOptions="Center">
         <Image Source="app_icon.svg" WidthRequest="54" HeightRequest="78"/>
