@@ -4,13 +4,13 @@ using MySqlConnector;
 
 namespace Banabet
 {
-    internal class DatabaseManager
+    public class DatabaseManager
     {
 
         /// <summary>
         /// Información de la base de datos para conectarnos (server, base de datos, userID y contraseña).
         /// </summary>
-        MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
+        public MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
         {
             Server = "banabet.mysql.database.azure.com",
             Database = "app_maui",

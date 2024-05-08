@@ -1,15 +1,16 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Mopups.Services;
-using Banabet.ViewModel;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-
+using MySqlConnector;
 namespace Banabet.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
+
+    DatabaseManager dbManager = new DatabaseManager();
+    MySqlConnection dataBaseCon;
+
     public List<ImageSource> IconosLogros { get; set; }
+
+
     public MainViewModel()
     {
         //Carrusel logros
@@ -22,6 +23,7 @@ public partial class MainViewModel : ObservableObject
             ImageSource.FromFile("carrousel_country_disabled.svg"),
             ImageSource.FromFile("carrousel_country_disabled.svg"),
         };
+       dataBaseCon = new MySqlConnection(dbManager.builder.ConnectionString);
     }
 
     [ObservableProperty]
@@ -41,6 +43,7 @@ public partial class MainViewModel : ObservableObject
     public void ReinicioPublico()
     {
         Fecha_ini = DateTime.Now;
+
         Contador = 0;
     }
 
