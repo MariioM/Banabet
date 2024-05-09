@@ -7,7 +7,7 @@ namespace Banabet
 {
     public class DatabaseManager
     {
-        object CurrentSession {  get; set; }
+        public object CurrentSession {  get; set; }
 
         public DatabaseManager() {
             CurrentSession = 0;
