@@ -1,4 +1,5 @@
 using Banabet.Services;
+using Banabet.ViewModel;
 
 namespace BanaBet;
 
@@ -19,6 +20,7 @@ public partial class LoadingPage : ContentPage
 		{
             //user loged in
             //Redirect to main
+			MainViewModel mvm = new MainViewModel();
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
 		else

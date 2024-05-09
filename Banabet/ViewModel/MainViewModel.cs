@@ -1,5 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using MySqlConnector;
+using System.Timers;
+using Timer = System.Timers.Timer;
 namespace Banabet.ViewModel;
 
 public partial class MainViewModel : ObservableObject
@@ -10,11 +12,25 @@ public partial class MainViewModel : ObservableObject
 
     public List<ImageSource> IconosLogros { get; set; }
 
+    [ObservableProperty]
+    float precioKgBanana = 1;
+    //Del forms
+    [ObservableProperty]
+    float apuestaMensual;
+    [ObservableProperty]
+    float contador;
+    [ObservableProperty]
+    //Del forms
+    DateTime fecha_ini;
+    [ObservableProperty]
+    TimeSpan diferencia;
+
     private string timeQuery = "SELECT fecha_inicio FROM usuarios WHERE id = @currentsession";
     private string moneyQuery = "SELECT estimacion_dinero_mensual FROM usuarios WHERE id = @currentsession";
 
     static object initDateFetched;
     static object moneyEstFetched;
+
 
     public MainViewModel()
     {
@@ -39,6 +55,8 @@ public partial class MainViewModel : ObservableObject
             moneyCommand.Parameters.AddWithValue("@currentsession", dbManager.CurrentSession);
             initDateFetched = timeCommand.ExecuteScalar();
             moneyEstFetched = moneyCommand.ExecuteScalar();
+            ApuestaMensual = Convert.ToSingle(moneyEstFetched);
+            Fecha_ini = Convert.ToDateTime(initDateFetched);
         }
         catch (Exception ex)
         {
@@ -56,45 +74,32 @@ public partial class MainViewModel : ObservableObject
 
     }
 
-    [ObservableProperty]
-    float precioKgBanana = 1;
-    //Del forms
-    [ObservableProperty]
-    float apuestaMensual = Convert.ToSingle(moneyEstFetched);
-    [ObservableProperty]
-    float contador;
-    [ObservableProperty]
-    //Del forms
-    DateTime fecha_ini = Convert.ToDateTime(initDateFetched);
-    [ObservableProperty]
-    TimeSpan diferencia = new TimeSpan();
-
+ 
 
     public void ReinicioPublico()
     {
         DateTime newDate = DateTime.Now;
         try
         {
-            dataBaseCon.Open();
-            MySqlCommand resetDateCommand = new MySqlCommand("UPDATE usuarios SET fecha_inicio " + newDate + " WHERE id = @currentsession");
-            resetDateCommand.Parameters.AddWithValue("@currentsession", dbManager.CurrentSession);
-            resetDateCommand.ExecuteNonQuery();
-        } catch (Exception ex)
-        {
-            Console.WriteLine("Error al intentar abrir la conexión o ejecutar el comando: " + ex.Message);
-        }
-        finally
-        {
-            // Cerramos la conexión con la base de datos
-            if (dataBaseCon.State == System.Data.ConnectionState.Open)
+            using (MySqlConnection dataBaseCon = new MySqlConnection(dbManager.builder.ConnectionString))
             {
-                dataBaseCon.Close();
+                dataBaseCon.Open();
+                string formattedDate = newDate.ToString("yyyy-MM-dd HH:mm:ss"); // Formatear la fecha correctamente
+                MySqlCommand resetDateCommand = new MySqlCommand("UPDATE usuarios SET fecha_inicio = @newDate WHERE id = @currentsession", dataBaseCon);
+                resetDateCommand.Parameters.AddWithValue("@newDate", formattedDate);
+                resetDateCommand.Parameters.AddWithValue("@currentsession", dbManager.CurrentSession);
+                resetDateCommand.ExecuteNonQuery();
             }
         }
-        
-
-        Contador = 0;
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error al intentar abrir la conexión o ejecutar el comando: " + ex.Message);
+        }finally
+        {
+            dataBaseCon.Close();
+        }
     }
+
 
     public async Task EmpezarPublico()
     {

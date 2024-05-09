@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using BCrypt.Net;
 using CommunityToolkit.Mvvm.ComponentModel;
 using MySqlConnector;
@@ -10,7 +11,7 @@ namespace Banabet
         public object CurrentSession {  get; set; }
 
         public DatabaseManager() {
-            CurrentSession = 0;
+            CurrentSession = Preferences.Get("CurrentSession", null);
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace Banabet
         public bool ComprobarUsuarioExiste(string emailInput, string passwordInput)
         {
             string query = "SELECT contraseña FROM usuarios WHERE correo = @correo";
-            string sessionQuery = "SELECT id FROM usuarios WHERE correo = @correo";
+            
 
             using (var databasecon = new MySqlConnection(builder.ConnectionString))
             {
@@ -48,8 +49,7 @@ namespace Banabet
                 {
                     CommandTimeout = 1  // Tiempo máximo de espera para la ejecución
                 };
-                // Comando para guardar la sesión actual
-                MySqlCommand sessionCommand = new MySqlCommand(sessionQuery, databasecon);
+                
 
                 try
                 {
@@ -71,8 +71,7 @@ namespace Banabet
                         if (BCrypt.Net.BCrypt.Verify(passwordInput, passwordBBDD))
                         {
                             Console.WriteLine("Autenticación exitosa.");
-                            sessionCommand.Parameters.AddWithValue("@correo", emailInput);
-                            CurrentSession = sessionCommand.ExecuteScalar();
+                            StoreSession(emailInput, databasecon);
                             return true;
                         }
                         else
@@ -101,6 +100,16 @@ namespace Banabet
                     }
                 }
             }
+        }
+
+        public void StoreSession(string email, MySqlConnection databasecon)
+        {
+            string sessionQuery = "SELECT id FROM usuarios WHERE correo = @correo";
+            // Comando para guardar la sesión actual
+            MySqlCommand sessionCommand = new MySqlCommand(sessionQuery, databasecon);
+            sessionCommand.Parameters.AddWithValue("@correo", email);
+            CurrentSession = sessionCommand.ExecuteScalar();
+            Preferences.Set("CurrentSession", Convert.ToString(CurrentSession));
         }
 
         /// <summary>
@@ -154,6 +163,7 @@ namespace Banabet
 
                     if (result > 0) // Query ejecutada con exito
                     {
+                        StoreSession(email, databasecon);
                         Console.WriteLine("Datos insertados correctamente.");
                     }
                     else

@@ -1,12 +1,22 @@
-﻿namespace BanaBet
+﻿using Banabet.Services;
+using Banabet.ViewModel;
+
+namespace BanaBet
 {
     public partial class App : Application
     {
+        private MainViewModel _mainViewModel;
         public App()
-        {
-            InitializeComponent();
+    {
+        InitializeComponent();
+        MainPage = new AppShell();
+        _mainViewModel = new MainViewModel();
+    }
 
-            MainPage = new AppShell();
-        }
+    protected override void OnStart()
+    {
+        // Llamar a EmpezarPublico para continuar actualizando los contadores
+        _mainViewModel.EmpezarPublico();
+    }
     }
 }
