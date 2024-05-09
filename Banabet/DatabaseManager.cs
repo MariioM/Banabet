@@ -1,11 +1,17 @@
 ﻿using System;
 using BCrypt.Net;
+using CommunityToolkit.Mvvm.ComponentModel;
 using MySqlConnector;
 
 namespace Banabet
 {
     public class DatabaseManager
     {
+        object CurrentSession {  get; set; }
+
+        public DatabaseManager() {
+            CurrentSession = 0;
+        }
 
         /// <summary>
         /// Información de la base de datos para conectarnos (server, base de datos, userID y contraseña).
@@ -33,6 +39,7 @@ namespace Banabet
         public bool ComprobarUsuarioExiste(string emailInput, string passwordInput)
         {
             string query = "SELECT contraseña FROM usuarios WHERE correo = @correo";
+            string sessionQuery = "SELECT id FROM usuarios WHERE correo = @correo";
 
             using (var databasecon = new MySqlConnection(builder.ConnectionString))
             {
@@ -41,6 +48,8 @@ namespace Banabet
                 {
                     CommandTimeout = 1  // Tiempo máximo de espera para la ejecución
                 };
+                // Comando para guardar la sesión actual
+                MySqlCommand sessionCommand = new MySqlCommand(sessionQuery, databasecon);
 
                 try
                 {
@@ -49,6 +58,7 @@ namespace Banabet
 
                     // Añadimos los parametros introducidos por el usuario al commando
                     command.Parameters.AddWithValue("@correo", emailInput);
+                    
 
                     // Ejecuta la consulta y retorna el primer resultado.
                     object result = command.ExecuteScalar();
@@ -61,6 +71,8 @@ namespace Banabet
                         if (BCrypt.Net.BCrypt.Verify(passwordInput, passwordBBDD))
                         {
                             Console.WriteLine("Autenticación exitosa.");
+                            sessionCommand.Parameters.AddWithValue("@correo", emailInput);
+                            CurrentSession = sessionCommand.ExecuteScalar();
                             return true;
                         }
                         else
