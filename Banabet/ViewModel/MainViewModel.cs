@@ -57,8 +57,8 @@ public partial class MainViewModel : ObservableObject
             moneyCommand.Parameters.AddWithValue("@currentsession", DatabaseManager.CurrentSession);
             initDateFetched = timeCommand.ExecuteScalar();
             moneyEstFetched = moneyCommand.ExecuteScalar();
-            ApuestaMensual = Convert.ToSingle(moneyEstFetched);
-            Fecha_ini = Convert.ToDateTime(initDateFetched);
+            Console.WriteLine(ApuestaMensual = Convert.ToSingle(moneyEstFetched));
+            Console.WriteLine(Fecha_ini = Convert.ToDateTime(initDateFetched));
         }
         catch (Exception ex)
         {
