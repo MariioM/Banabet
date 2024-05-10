@@ -28,6 +28,10 @@ public partial class MainViewModel : ObservableObject
     static object initDateFetched;
     static object moneyEstFetched;
 
+    static float dineroTemp;
+    static DateTime fechaTemp;
+
+
     public MainViewModel()
     {
         //Carrusel logros
@@ -46,8 +50,6 @@ public partial class MainViewModel : ObservableObject
 
     public void FetchData()
     {
-        float dineroTemp;
-        DateTime fechaTemp;
 
         DatabaseManager.Connection = new MySqlConnection(DatabaseManager.builder.ConnectionString);
         try
@@ -60,9 +62,8 @@ public partial class MainViewModel : ObservableObject
             initDateFetched = timeCommand.ExecuteScalar();
             moneyEstFetched = moneyCommand.ExecuteScalar();
             dineroTemp = Convert.ToSingle(moneyEstFetched);
-            ApuestaMensual = dineroTemp;
             fechaTemp = Convert.ToDateTime(initDateFetched);
-            Fecha_ini = fechaTemp;
+
         }
         catch (Exception ex)
         {
@@ -108,6 +109,8 @@ public partial class MainViewModel : ObservableObject
         float ahorro = ApuestaMensual / 43200;
         while (true)
         {
+            Fecha_ini = fechaTemp;
+            ApuestaMensual = dineroTemp;
             Contador += ahorro;
             DateTime ahora = DateTime.Now;
             Diferencia = ahora - Fecha_ini;
