@@ -1,3 +1,4 @@
+using Banabet;
 using Banabet.Services;
 using Banabet.ViewModel;
 
@@ -10,6 +11,7 @@ public partial class LoadingPage : ContentPage
 	{
 		InitializeComponent();
 		_authService = authService;
+		
 	}
 
 	protected async override void OnNavigatedTo(NavigatedToEventArgs args)
@@ -18,9 +20,9 @@ public partial class LoadingPage : ContentPage
 
 		if(await _authService.IsAutheticated())
 		{
-            //user loged in
-            //Redirect to main
-			MainViewModel mvm = new MainViewModel();
+			//user loged in
+			//Redirect to main
+			DatabaseManager.GetPreference();
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
 		else
@@ -30,6 +32,4 @@ public partial class LoadingPage : ContentPage
 			await Shell.Current.GoToAsync(nameof(RegisterPage));
 		}
 	}
-
-
 }

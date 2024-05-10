@@ -24,6 +24,7 @@ namespace Banabet.Services
         }
         public void Logout()
         {
+            DatabaseManager.ClearCurrentSession();
             Preferences.Default.Remove(AuthStateKey);
         }
     }

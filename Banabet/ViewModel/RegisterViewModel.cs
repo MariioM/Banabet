@@ -1,10 +1,10 @@
-﻿using Android.Hardware.Usb;
+﻿//using Android.Hardware.Usb;
 using Banabet.Services;
 using BanaBet;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Text.RegularExpressions;
-using static Android.Provider.ContactsContract.CommonDataKinds;
+//using static Android.Provider.ContactsContract.CommonDataKinds;
 
 namespace Banabet.ViewModel
 {
@@ -31,7 +31,6 @@ namespace Banabet.ViewModel
         [ObservableProperty]
         bool isLoginButtonEnabled;
 
-        DatabaseManager dbManager = new DatabaseManager();
         AuthService authService = new AuthService();
 
         public async Task CheckFields()
@@ -55,10 +54,12 @@ namespace Banabet.ViewModel
             return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         }
 
+        
+
         [RelayCommand]
         async Task RegisterTap()
         {
-            bool success = dbManager.EnviarDatosRegistroBase(Email, Password, EmergencyContactName, EmergencyContactNumber, EstimatedMoney);
+            bool success = DatabaseManager.EnviarDatosRegistroBase(Email, Password, EmergencyContactName, EmergencyContactNumber, EstimatedMoney);
             if (success)
             {
                 Console.WriteLine("Registro completo!");
@@ -70,10 +71,9 @@ namespace Banabet.ViewModel
         [RelayCommand]
         async Task LoginTap()
         {
-            bool success = dbManager.ComprobarUsuarioExiste(LoginEmail, LoginPassword);
+            bool success = DatabaseManager.ComprobarUsuarioExiste(LoginEmail, LoginPassword);
             if (success)
             {
-                Console.WriteLine("Login completo!");
                 authService.Login();
                 await Shell.Current.GoToAsync(nameof(FormPage1));
             }

@@ -1,14 +1,11 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using MySqlConnector;
 using System.Timers;
-using Timer = System.Timers.Timer;
 namespace Banabet.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
 
-    DatabaseManager dbManager = new DatabaseManager();
-    MySqlConnection dataBaseCon;
 
     public List<ImageSource> IconosLogros { get; set; }
 
@@ -25,8 +22,8 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     TimeSpan diferencia;
 
-    private string timeQuery = "SELECT fecha_inicio FROM usuarios WHERE id = @currentsession";
-    private string moneyQuery = "SELECT estimacion_dinero_mensual FROM usuarios WHERE id = @currentsession";
+    private static string timeQuery = "SELECT fecha_inicio FROM usuarios WHERE id = @currentsession";
+    private static string moneyQuery = "SELECT estimacion_dinero_mensual FROM usuarios WHERE id = @currentsession";
 
     static object initDateFetched;
     static object moneyEstFetched;
@@ -44,15 +41,17 @@ public partial class MainViewModel : ObservableObject
             ImageSource.FromFile("carrousel_country_disabled.svg"),
             ImageSource.FromFile("carrousel_country_disabled.svg"),
         };
-        dataBaseCon = new MySqlConnection(dbManager.builder.ConnectionString);
-        try { 
-            
-            dataBaseCon.Open();
 
-            MySqlCommand timeCommand = new MySqlCommand(timeQuery, dataBaseCon);
-            MySqlCommand moneyCommand = new MySqlCommand(moneyQuery, dataBaseCon);
-            timeCommand.Parameters.AddWithValue("@currentsession", dbManager.CurrentSession);
-            moneyCommand.Parameters.AddWithValue("@currentsession", dbManager.CurrentSession);
+        DatabaseManager.Connection = new MySqlConnection(DatabaseManager.builder.ConnectionString);
+        try
+        {
+
+            DatabaseManager.Connection.Open();
+
+            MySqlCommand timeCommand = new MySqlCommand(timeQuery, DatabaseManager.Connection);
+            MySqlCommand moneyCommand = new MySqlCommand(moneyQuery, DatabaseManager.Connection);
+            timeCommand.Parameters.AddWithValue("@currentsession", DatabaseManager.CurrentSession);
+            moneyCommand.Parameters.AddWithValue("@currentsession", DatabaseManager.CurrentSession);
             initDateFetched = timeCommand.ExecuteScalar();
             moneyEstFetched = moneyCommand.ExecuteScalar();
             ApuestaMensual = Convert.ToSingle(moneyEstFetched);
@@ -65,29 +64,30 @@ public partial class MainViewModel : ObservableObject
         finally
         {
             // Cerramos la conexión con la base de datos
-            if (dataBaseCon.State == System.Data.ConnectionState.Open)
+            if (DatabaseManager.Connection.State == System.Data.ConnectionState.Open)
             {
-                dataBaseCon.Close();
+                DatabaseManager.Connection.Close();
             }
         }
-
-
     }
 
- 
+    /*public void FetchData()
+    {
+       
+    }*/
 
     public void ReinicioPublico()
     {
         DateTime newDate = DateTime.Now;
         try
         {
-            using (MySqlConnection dataBaseCon = new MySqlConnection(dbManager.builder.ConnectionString))
+            using (MySqlConnection dataBaseCon = new MySqlConnection(DatabaseManager.builder.ConnectionString))
             {
-                dataBaseCon.Open();
+                DatabaseManager.Connection.Open();
                 string formattedDate = newDate.ToString("yyyy-MM-dd HH:mm:ss"); // Formatear la fecha correctamente
                 MySqlCommand resetDateCommand = new MySqlCommand("UPDATE usuarios SET fecha_inicio = @newDate WHERE id = @currentsession", dataBaseCon);
                 resetDateCommand.Parameters.AddWithValue("@newDate", formattedDate);
-                resetDateCommand.Parameters.AddWithValue("@currentsession", dbManager.CurrentSession);
+                resetDateCommand.Parameters.AddWithValue("@currentsession", DatabaseManager.CurrentSession);
                 resetDateCommand.ExecuteNonQuery();
             }
         }
@@ -96,7 +96,7 @@ public partial class MainViewModel : ObservableObject
             Console.WriteLine("Error al intentar abrir la conexión o ejecutar el comando: " + ex.Message);
         }finally
         {
-            dataBaseCon.Close();
+            DatabaseManager.Connection.Close();
         }
     }
 
@@ -112,5 +112,4 @@ public partial class MainViewModel : ObservableObject
             await Task.Delay(1000);
         }
     }
-    //Solo 3 decimales en los kilos de platanos
 }
