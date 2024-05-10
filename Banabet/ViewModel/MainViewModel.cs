@@ -106,12 +106,13 @@ public partial class MainViewModel : ObservableObject
 
     public async Task EmpezarPublico()
     {
+        Fecha_ini = fechaTemp;
+        ApuestaMensual = dineroTemp;
         float ahorro = ApuestaMensual / 43200;
         while (true)
         {
-            Fecha_ini = fechaTemp;
-            ApuestaMensual = dineroTemp;
-            Contador += ahorro;
+            
+            Contador = Convert.ToSingle(Math.Truncate((Contador + ahorro) * 1000) / 1000);
             DateTime ahora = DateTime.Now;
             Diferencia = ahora - Fecha_ini;
             await Task.Delay(1000);
