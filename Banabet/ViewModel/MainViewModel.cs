@@ -28,7 +28,6 @@ public partial class MainViewModel : ObservableObject
     static object initDateFetched;
     static object moneyEstFetched;
 
-
     public MainViewModel()
     {
         //Carrusel logros
@@ -47,6 +46,9 @@ public partial class MainViewModel : ObservableObject
 
     public void FetchData()
     {
+        float dineroTemp;
+        DateTime fechaTemp;
+
         DatabaseManager.Connection = new MySqlConnection(DatabaseManager.builder.ConnectionString);
         try
         {
@@ -57,8 +59,10 @@ public partial class MainViewModel : ObservableObject
             moneyCommand.Parameters.AddWithValue("@currentsession", DatabaseManager.CurrentSession);
             initDateFetched = timeCommand.ExecuteScalar();
             moneyEstFetched = moneyCommand.ExecuteScalar();
-            Console.WriteLine(ApuestaMensual = Convert.ToSingle(moneyEstFetched));
-            Console.WriteLine(Fecha_ini = Convert.ToDateTime(initDateFetched));
+            dineroTemp = Convert.ToSingle(moneyEstFetched);
+            ApuestaMensual = dineroTemp;
+            fechaTemp = Convert.ToDateTime(initDateFetched);
+            Fecha_ini = fechaTemp;
         }
         catch (Exception ex)
         {
