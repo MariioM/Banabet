@@ -12,7 +12,7 @@ namespace Banabet
         public static object CurrentSession {  get; set; }
         public static MySqlConnection Connection { get; set; }
 
-
+        public static MainViewModel mvm = new MainViewModel();
         public static void GetPreference()
         {
             CurrentSession = Preferences.Get("CurrentSession", null);
@@ -83,8 +83,8 @@ namespace Banabet
                         if (BCrypt.Net.BCrypt.Verify(passwordInput, passwordBBDD))
                         {
                             Console.WriteLine("Autenticación exitosa.");
+                            //mvm.FetchData();
                             StoreSession(emailInput, Connection);
-                            
                             return true;
                         }
                         else
@@ -191,8 +191,8 @@ namespace Banabet
 
                     if (result > 0) // Query ejecutada con exito
                     {
+                        //mvm.FetchData();
                         StoreSession(email, Connection);
-                        
                         Console.WriteLine("Datos insertados correctamente.");
                     }
                     else

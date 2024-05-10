@@ -8,6 +8,7 @@ namespace Banabet.Services
 {
     public class AuthService
     {
+        
         private const string AuthStateKey = "AuthState";
         public async Task<bool> IsAutheticated()
         {
@@ -20,6 +21,7 @@ namespace Banabet.Services
 
         public void Login()
         {
+            DatabaseManager.mvm.FetchData();
             Preferences.Default.Set<bool>(AuthStateKey, true);
         }
         public void Logout()

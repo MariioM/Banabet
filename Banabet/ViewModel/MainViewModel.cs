@@ -42,12 +42,15 @@ public partial class MainViewModel : ObservableObject
             ImageSource.FromFile("carrousel_country_disabled.svg"),
         };
 
+       
+    }
+
+    public void FetchData()
+    {
         DatabaseManager.Connection = new MySqlConnection(DatabaseManager.builder.ConnectionString);
         try
         {
-
             DatabaseManager.Connection.Open();
-
             MySqlCommand timeCommand = new MySqlCommand(timeQuery, DatabaseManager.Connection);
             MySqlCommand moneyCommand = new MySqlCommand(moneyQuery, DatabaseManager.Connection);
             timeCommand.Parameters.AddWithValue("@currentsession", DatabaseManager.CurrentSession);
@@ -70,11 +73,6 @@ public partial class MainViewModel : ObservableObject
             }
         }
     }
-
-    /*public void FetchData()
-    {
-       
-    }*/
 
     public void ReinicioPublico()
     {

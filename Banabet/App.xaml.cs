@@ -18,6 +18,7 @@ namespace BanaBet
 
     protected override void OnStart()
     {
+
             // Llamar a EmpezarPublico para continuar actualizando los contadores
             _mainViewModel.EmpezarPublico();
             DatabaseManager.Connection = new MySqlConnection(DatabaseManager.builder.ConnectionString);
