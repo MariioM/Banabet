@@ -23,13 +23,16 @@ public partial class LoadingPage : ContentPage
 			//user loged in
 			//Redirect to main
 			DatabaseManager.GetPreference();
+			DatabaseManager.mvm.userAlreadyLogged = true;
+			DatabaseManager.mvm.FetchData();
+			DatabaseManager.mvm.EmpezarPublico();
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
 		else
 		{
-			//Usr not login
-			//Redidirect to login
-			await Shell.Current.GoToAsync(nameof(RegisterPage));
+            //Usr not login
+            //Redidirect to login
+            await Shell.Current.GoToAsync(nameof(RegisterPage));
 		}
 	}
 }

@@ -83,7 +83,6 @@ namespace Banabet
                         if (BCrypt.Net.BCrypt.Verify(passwordInput, passwordBBDD))
                         {
                             Console.WriteLine("Autenticación exitosa.");
-                            //mvm.FetchData();
                             StoreSession(emailInput, Connection);
                             return true;
                         }

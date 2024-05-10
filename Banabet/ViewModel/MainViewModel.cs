@@ -31,6 +31,8 @@ public partial class MainViewModel : ObservableObject
     static float dineroTemp;
     static DateTime fechaTemp;
 
+    public bool userAlreadyLogged = false;
+
 
     public MainViewModel()
     {
@@ -63,7 +65,6 @@ public partial class MainViewModel : ObservableObject
             moneyEstFetched = moneyCommand.ExecuteScalar();
             dineroTemp = Convert.ToSingle(moneyEstFetched);
             fechaTemp = Convert.ToDateTime(initDateFetched);
-
         }
         catch (Exception ex)
         {
@@ -77,6 +78,12 @@ public partial class MainViewModel : ObservableObject
                 DatabaseManager.Connection.Close();
             }
         }
+    }
+
+    public void updateData() 
+    {
+        Fecha_ini = fechaTemp;
+        ApuestaMensual = dineroTemp;
     }
 
     public void ReinicioPublico()
@@ -106,12 +113,20 @@ public partial class MainViewModel : ObservableObject
 
     public async Task EmpezarPublico()
     {
-        Fecha_ini = fechaTemp;
-        ApuestaMensual = dineroTemp;
-        float ahorro = ApuestaMensual / 43200;
+        updateData();
+
+        DateTime ahoratemp = DateTime.Now;
+        Diferencia = ahoratemp - Fecha_ini;
+
+        float ahorro = (ApuestaMensual / 43200);
+
+        if (userAlreadyLogged)
+        {
+            Contador = (Convert.ToSingle(Math.Truncate((Contador + (ahorro * ((Diferencia.Days * 86400) + (Diferencia.Hours * 3600) + (Diferencia.Minutes * 60) + Diferencia.Seconds))) * 1000) / 1000));
+        }
+
         while (true)
         {
-            
             Contador = Convert.ToSingle(Math.Truncate((Contador + ahorro) * 1000) / 1000);
             DateTime ahora = DateTime.Now;
             Diferencia = ahora - Fecha_ini;
